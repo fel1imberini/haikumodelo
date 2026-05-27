@@ -1,0 +1,1177 @@
+<!-- =========================================================
+SERVICES PAGE — HAIKU EXPRESIÓN
+Premium Architecture Website
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Servicios — HAIKU EXPRESIÓN</title>
+
+<!-- GOOGLE FONTS -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+RESET
+========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5f1eb;
+  color:#111;
+  font-family:'Inter', sans-serif;
+  overflow-x:hidden;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* =========================================================
+VARIABLES
+========================================================= */
+
+:root{
+
+  --bg:#f5f1eb;
+  --white:#fff;
+  --dark:#0d0d0d;
+  --gray:#666;
+  --light:#ede7df;
+
+}
+
+/* =========================================================
+NAVBAR
+========================================================= */
+
+nav{
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+
+  z-index:999;
+
+  padding:26px 50px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:rgba(91,97,44);
+  backdrop-filter:blur(10px);
+
+}
+
+.logo img{
+
+  width:160px;
+
+}
+
+/* DESKTOP MENU */
+
+.menu{
+
+  display:flex;
+  gap:40px;
+
+  color:white;
+
+  text-transform:uppercase;
+  letter-spacing:2px;
+
+  font-size:11px;
+
+}
+
+.menu a{
+
+  position:relative;
+
+}
+
+.menu a::after{
+
+  content:'';
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:white;
+
+  transition:0.4s;
+
+}
+
+.menu a:hover::after{
+
+  width:100%;
+
+}
+
+/* =========================================================
+HAMBURGER
+========================================================= */
+
+#menu-toggle{
+
+  display:none;
+
+}
+
+.hamburger{
+
+  display:none;
+
+  width:42px;
+  height:42px;
+
+  flex-direction:column;
+  justify-content:center;
+
+  gap:7px;
+
+  cursor:pointer;
+
+  z-index:1200;
+
+}
+
+.hamburger span{
+
+  width:100%;
+  height:2px;
+
+  background:white;
+
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+
+  position:fixed;
+
+  top:0;
+  left:100%;
+
+  width:100%;
+  height:100vh;
+
+  background:#0d0d0d;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  gap:35px;
+
+  transition:0.5s ease;
+
+  z-index:1100;
+
+}
+
+.mobile-menu a{
+
+  color:white;
+
+  font-size:42px;
+
+  font-family:'Cormorant Garamond', serif;
+
+}
+
+/* OPEN */
+
+#menu-toggle:checked ~ .mobile-menu{
+
+  left:0;
+
+}
+
+/* =========================================================
+HERO
+========================================================= */
+
+.hero{
+
+  position:relative;
+  height:100svh;
+  min-height:800px;
+
+  overflow:hidden;
+  background-color: rgb(80, 78, 49);
+
+}
+
+.hero img{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:brightness(0.7);
+
+}
+
+.overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:rgba(0,0,0,0.2);
+
+}
+
+.hero-content{
+
+  position:relative;
+  z-index:2;
+
+  height:100%;
+
+  display:flex;
+  align-items:flex-end;
+
+  padding:0 8% 90px;
+
+  color:white;
+
+}
+
+.small{
+
+  text-transform:uppercase;
+  letter-spacing:3px;
+
+  font-size:11px;
+
+  margin-bottom:25px;
+
+  opacity:0.8;
+
+}
+
+.hero h1{
+
+  font-size:clamp(70px, 9vw, 140px);
+
+  line-height:0.9;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:35px;
+
+}
+
+.hero p{
+
+  max-width:650px;
+
+  line-height:2;
+
+  color:rgba(255,255,255,0.85);
+
+}
+
+/* =========================================================
+GENERAL
+========================================================= */
+
+.container{
+
+  padding:140px 8%;
+
+}
+
+.section-small{
+
+  text-transform:uppercase;
+  letter-spacing:2px;
+
+  color:#999;
+
+  font-size:12px;
+
+  margin-bottom:25px;
+
+}
+
+.section-title{
+
+  font-size:clamp(48px, 7vw, 82px);
+
+  line-height:0.95;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:40px;
+
+}
+
+.section-text{
+
+  max-width:720px;
+
+  color:#666;
+
+  line-height:2;
+
+}
+
+/* =========================================================
+INTRO
+========================================================= */
+
+.intro{
+
+  background:white;
+
+}
+
+.intro-grid{
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  gap:100px;
+
+  align-items:center;
+
+}
+
+.intro img{
+
+  height:850px;
+  object-fit:cover;
+
+}
+
+/* =========================================================
+SERVICE BLOCK
+========================================================= */
+
+.service{
+
+  position:relative;
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+}
+
+.service img{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:brightness(0.65);
+
+}
+
+.service-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.15));
+
+}
+
+.service-content{
+
+  position:relative;
+  z-index:2;
+
+  min-height:100vh;
+
+  display:flex;
+  align-items:center;
+
+  padding:120px 8%;
+
+  color:white;
+
+}
+
+.service-text{
+
+  max-width:700px;
+
+}
+
+.service-number{
+
+  font-size:14px;
+  letter-spacing:3px;
+
+  opacity:0.7;
+
+  margin-bottom:30px;
+
+}
+
+.service h2{
+
+  font-size:clamp(60px, 8vw, 120px);
+
+  line-height:0.9;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:30px;
+
+}
+
+.service-sub{
+
+  text-transform:uppercase;
+  letter-spacing:2px;
+
+  font-size:11px;
+
+  margin-bottom:35px;
+
+  opacity:0.8;
+
+}
+
+.service p{
+
+  max-width:600px;
+
+  line-height:2;
+
+  color:rgba(255,255,255,0.82);
+
+}
+
+/* =========================================================
+PROCESS
+========================================================= */
+
+.process{
+
+  background:#ede7df;
+
+}
+
+.process-grid{
+
+  margin-top:90px;
+
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+
+  gap:50px;
+
+}
+
+.step{
+
+  border-top:1px solid rgba(0,0,0,0.1);
+
+  padding-top:30px;
+
+}
+
+.step span{
+
+  color:#999;
+
+  font-size:14px;
+
+}
+
+.step h3{
+
+  font-size:34px;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin:20px 0;
+
+}
+
+.step p{
+
+  color:#666;
+
+  line-height:1.9;
+
+}
+
+/* =========================================================
+FINAL CTA
+========================================================= */
+
+.final{
+
+  position:relative;
+
+  height:90vh;
+
+  overflow:hidden;
+
+}
+
+.final img{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:brightness(0.6);
+
+}
+
+.final-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:rgba(0,0,0,0.2);
+
+}
+
+.final-content{
+
+  position:relative;
+  z-index:2;
+
+  height:100%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:0 8%;
+
+  color:white;
+
+}
+
+.final h2{
+
+  font-size:clamp(50px, 7vw, 100px);
+
+  line-height:0.95;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:35px;
+
+}
+
+.final p{
+
+  max-width:700px;
+
+  margin:auto;
+
+  line-height:2;
+
+  color:rgba(255,255,255,0.85);
+
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer{
+
+  background:#0d0d0d;
+  color:white;
+
+  padding:60px 8%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+}
+
+footer p{
+
+  font-size:13px;
+
+  opacity:0.6;
+
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+  nav{
+
+    padding:20px 24px;
+
+  }
+
+  .menu{
+
+    display:none;
+
+  }
+
+  .hamburger{
+
+    display:flex;
+
+  }
+
+  .logo img{
+
+    width:130px;
+
+  }
+
+  .container{
+
+    padding:90px 24px;
+
+  }
+
+  .intro-grid{
+
+    grid-template-columns:1fr;
+
+    gap:50px;
+
+  }
+
+  .intro img{
+
+    height:auto;
+
+  }
+
+  .process-grid{
+
+    grid-template-columns:1fr;
+
+    gap:30px;
+
+  }
+
+  .service-content{
+
+    padding:120px 24px;
+
+  }
+
+}
+
+@media(max-width:768px){
+
+  .hero{
+
+    min-height:650px;
+
+  }
+
+  .hero-content{
+
+    padding:0 24px 70px;
+
+  }
+
+  .hero h1{
+
+    font-size:58px;
+
+  }
+
+  .service h2{
+
+    font-size:54px;
+
+  }
+
+  .section-title{
+
+    font-size:42px;
+
+  }
+
+  .mobile-menu a{
+
+    font-size:34px;
+
+  }
+
+}
+
+@media(max-width:480px){
+
+  .hero h1{
+
+    font-size:46px;
+
+  }
+
+  .service h2{
+
+    font-size:42px;
+
+  }
+
+  .section-title{
+
+    font-size:34px;
+
+  }
+
+  .hero-content{
+
+    padding:0 18px 60px;
+
+  }
+
+  .container{
+
+    padding:75px 18px;
+
+  }
+
+  .service-content{
+
+    padding:100px 18px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+NAVBAR
+========================================================= -->
+
+<nav>
+
+  <div class="logo">
+    <img src="images/logo.png" alt="">
+  </div>
+
+  <input type="checkbox" id="menu-toggle">
+
+  <label for="menu-toggle" class="hamburger">
+
+    <span></span>
+    <span></span>
+
+  </label>
+
+  <div class="menu">
+
+    <a href="index.html">Inicio</a>
+    <a href="about.html">Estudio</a>
+    <a href="projects.html">Proyectos</a>
+    <a href="services.html">Servicios</a>
+    <a href="contact.html">Contacto</a>
+
+  </div>
+
+  <div class="mobile-menu">
+
+    <a href="index.html">Inicio</a>
+    <a href="about.html">Estudio</a>
+    <a href="projects.html">Proyectos</a>
+    <a href="services.html">Servicios</a>
+    <a href="contact.html">Contacto</a>
+
+  </div>
+
+</nav>
+
+<!-- =========================================================
+HERO
+========================================================= -->
+
+<section class="hero">
+
+  
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+    <div>
+
+      <div class="small">
+        間 — MA ・ EL ESPACIO ENTRE LAS COSAS
+      </div>
+
+      <h1>
+
+        Servicios concebidos
+        desde la sensibilidad.
+
+      </h1>
+
+      <p>
+
+        Arquitectura, dirección y materialización
+        entendidas como un proceso de contemplación,
+        precisión y experiencia habitable.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+INTRO
+========================================================= -->
+
+<section class="intro container">
+
+  <div class="intro-grid">
+
+    <img src="images/service-intro.jpg">
+
+    <div>
+
+      <div class="section-small">
+        FILOSOFÍA
+      </div>
+
+      <h2 class="section-title">
+
+        La arquitectura como
+        experiencia emocional.
+
+      </h2>
+
+      <p class="section-text">
+
+        Entendemos cada proyecto como un proceso de observación,
+        diálogo y materialización.
+
+        Buscamos crear espacios donde la luz,
+        la materia y la naturaleza construyan
+        una experiencia silenciosa y atemporal.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+SERVICE 01
+========================================================= -->
+
+<section class="service">
+
+  <img src="images/service-projects.jpg">
+
+  <div class="service-overlay"></div>
+
+  <div class="service-content">
+
+    <div class="service-text">
+
+      <div class="service-number">
+        01 — PROYECTOS
+      </div>
+
+      <h2>
+        Arquitectura.
+      </h2>
+
+      <div class="service-sub">
+        Obra nueva · Remodelación · Ampliación
+      </div>
+
+      <p>
+
+        Diseñamos espacios donde la luz,
+        el contexto y la materialidad
+        generan una experiencia habitable
+        sensible y contemporánea.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+SERVICE 02
+========================================================= -->
+
+<section class="service">
+
+  <img src="images/service-management.jpg">
+
+  <div class="service-overlay"></div>
+
+  <div class="service-content">
+
+    <div class="service-text">
+
+      <div class="service-number">
+        02 — DIRECCIÓN & GERENCIAMIENTO
+      </div>
+
+      <h2>
+        Precisión.
+      </h2>
+
+      <div class="service-sub">
+        Supervisión · Coordinación · Calidad
+      </div>
+
+      <p>
+
+        Acompañamos cada etapa del proceso
+        asegurando coherencia arquitectónica,
+        detalle constructivo y calidad espacial.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+SERVICE 03
+========================================================= -->
+
+<section class="service">
+
+  <img src="images/service-technical.jpg">
+
+  <div class="service-overlay"></div>
+
+  <div class="service-content">
+
+    <div class="service-text">
+
+      <div class="service-number">
+        03 — DESARROLLO TÉCNICO
+      </div>
+
+      <h2>
+        Detalle.
+      </h2>
+
+      <div class="service-sub">
+        Documentación · Materialidad · Ejecución
+      </div>
+
+      <p>
+
+        La arquitectura también se construye
+        desde la precisión técnica.
+        Diseñamos documentación clara,
+        sensible y coherente con cada concepto.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+PROCESS
+========================================================= -->
+
+<section class="process container">
+
+  <div class="section-small">
+    PROCESO
+  </div>
+
+  <h2 class="section-title">
+
+    De la contemplación
+    a la materialización.
+
+  </h2>
+
+  <div class="process-grid">
+
+    <div class="step">
+
+      <span>01</span>
+
+      <h3>Observación</h3>
+
+      <p>
+        Comprender el contexto,
+        la luz y las necesidades del espacio.
+      </p>
+
+    </div>
+
+    <div class="step">
+
+      <span>02</span>
+
+      <h3>Concepto</h3>
+
+      <p>
+        Explorar espacialidad,
+        experiencia y materialidad.
+      </p>
+
+    </div>
+
+    <div class="step">
+
+      <span>03</span>
+
+      <h3>Desarrollo</h3>
+
+      <p>
+        Definir técnica,
+        detalle y ejecución.
+      </p>
+
+    </div>
+
+    <div class="step">
+
+      <span>04</span>
+
+      <h3>Materialización</h3>
+
+      <p>
+        Convertir ideas
+        en arquitectura habitable.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+FINAL
+========================================================= -->
+
+<section class="final">
+
+  <img src="images/service-final.jpg">
+
+  <div class="final-overlay"></div>
+
+  <div class="final-content">
+
+    <div>
+
+      <h2>
+
+        La arquitectura no comienza
+        cuando se construye.
+
+      </h2>
+
+      <p>
+
+        Comienza cuando una emoción
+        encuentra su espacio.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer>
+
+  <div class="logo">
+    HAIKU EXPRESIÓN
+  </div>
+
+  <p>
+    Arquitectura contemporánea • Argentina
+  </p>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,968 @@
+<!-- =========================================================
+PROJECTS PAGE — HAIKU EXPRESIÓN
+Minimal / Editorial / Architecture Gallery
+========================================================= -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Proyectos — HAIKU EXPRESIÓN</title>
+
+<!-- GOOGLE FONTS -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+RESET
+========================================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5f1eb;
+  color:#111;
+  font-family:'Inter', sans-serif;
+  overflow-x:hidden;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* =========================================================
+NAVBAR
+========================================================= */
+
+nav{
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+
+  padding:24px 50px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  z-index:999;
+
+  background:rgba(0,0,0,0.15);
+  backdrop-filter:blur(10px);
+
+}
+
+.logo img{
+
+  width:160px;
+
+}
+
+/* DESKTOP MENU */
+
+.menu{
+
+  display:flex;
+  gap:40px;
+
+  color:white;
+
+  text-transform:uppercase;
+  letter-spacing:2px;
+
+  font-size:11px;
+
+}
+
+.menu a{
+
+  position:relative;
+
+}
+
+.menu a::after{
+
+  content:'';
+
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:1px;
+
+  background:white;
+
+  transition:0.4s;
+
+}
+
+.menu a:hover::after{
+
+  width:100%;
+
+}
+
+/* =========================================================
+HAMBURGER
+========================================================= */
+
+#menu-toggle{
+
+  display:none;
+
+}
+
+.hamburger{
+
+  display:none;
+
+  width:42px;
+  height:42px;
+
+  flex-direction:column;
+  justify-content:center;
+
+  gap:7px;
+
+  cursor:pointer;
+
+  z-index:1200;
+
+}
+
+.hamburger span{
+
+  width:100%;
+  height:2px;
+
+  background:white;
+
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+
+  position:fixed;
+
+  top:0;
+  left:100%;
+
+  width:100%;
+  height:100vh;
+
+  background:#0d0d0d;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  gap:35px;
+
+  transition:0.5s ease;
+
+  z-index:1100;
+
+}
+
+.mobile-menu a{
+
+  color:white;
+
+  font-size:42px;
+
+  font-family:'Cormorant Garamond', serif;
+
+}
+
+#menu-toggle:checked ~ .mobile-menu{
+
+  left:0;
+
+}
+
+/* =========================================================
+HERO
+========================================================= */
+
+.hero{
+
+  position:relative;
+
+  height:85svh;
+  min-height:700px;
+
+  overflow:hidden;
+
+}
+
+.hero img{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:brightness(0.72);
+
+}
+
+.overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:rgba(0,0,0,0.2);
+
+}
+
+.hero-content{
+
+  position:relative;
+  z-index:2;
+
+  height:100%;
+
+  display:flex;
+  align-items:flex-end;
+
+  padding:0 8% 80px;
+
+  color:white;
+
+}
+
+.small{
+
+  text-transform:uppercase;
+  letter-spacing:3px;
+
+  font-size:11px;
+
+  margin-bottom:25px;
+
+  opacity:0.8;
+
+}
+
+.hero h1{
+
+  font-size:clamp(60px, 9vw, 140px);
+
+  line-height:0.9;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:35px;
+
+}
+
+.hero p{
+
+  max-width:650px;
+
+  line-height:2;
+
+  color:rgba(255,255,255,0.85);
+
+}
+
+/* =========================================================
+INTRO
+========================================================= */
+
+.intro{
+
+  padding:120px 8%;
+
+  background:white;
+
+}
+
+.intro h2{
+
+  font-size:clamp(42px, 6vw, 82px);
+
+  line-height:0.95;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:35px;
+
+}
+
+.intro p{
+
+  max-width:720px;
+
+  line-height:2;
+
+  color:#666;
+
+}
+
+/* =========================================================
+PROJECTS GRID
+========================================================= */
+
+.projects{
+
+  padding:0 2% 140px;
+
+}
+
+.grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(12,1fr);
+
+  gap:18px;
+
+}
+
+/* PROJECT */
+
+.project{
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:#ddd;
+
+  cursor:pointer;
+
+}
+
+.project img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:1.2s;
+
+}
+
+.project:hover img{
+
+  transform:scale(1.05);
+
+}
+
+.project-info{
+
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:35px;
+
+  background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+
+  color:white;
+
+  opacity:0;
+
+  transition:0.5s;
+
+}
+
+.project:hover .project-info{
+
+  opacity:1;
+
+}
+
+.project-info h3{
+
+  font-size:42px;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:10px;
+
+}
+
+.project-info p{
+
+  text-transform:uppercase;
+  letter-spacing:2px;
+
+  font-size:11px;
+
+  opacity:0.8;
+
+}
+
+/* DIFFERENT LAYOUTS */
+
+.large{
+
+  grid-column:span 7;
+  height:900px;
+
+}
+
+.medium{
+
+  grid-column:span 5;
+  height:900px;
+
+}
+
+.wide{
+
+  grid-column:span 8;
+  height:650px;
+
+}
+
+.small{
+
+  grid-column:span 4;
+  height:650px;
+
+}
+
+.full{
+
+  grid-column:span 12;
+  height:850px;
+
+}
+
+/* =========================================================
+FINAL
+========================================================= */
+
+.final{
+
+  padding:140px 8%;
+
+  background:#0d0d0d;
+
+  color:white;
+
+  text-align:center;
+
+}
+
+.final h2{
+
+  font-size:clamp(46px, 6vw, 90px);
+
+  line-height:0.95;
+
+  font-family:'Cormorant Garamond', serif;
+  font-weight:400;
+
+  margin-bottom:35px;
+
+}
+
+.final p{
+
+  max-width:700px;
+
+  margin:auto;
+
+  line-height:2;
+
+  color:#bbb;
+
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer{
+
+  background:#0d0d0d;
+
+  color:white;
+
+  padding:50px 8%;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  border-top:1px solid rgba(255,255,255,0.08);
+
+}
+
+footer p{
+
+  opacity:0.6;
+
+  font-size:13px;
+
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+  nav{
+
+    padding:20px 24px;
+
+  }
+
+  .menu{
+
+    display:none;
+
+  }
+
+  .hamburger{
+
+    display:flex;
+
+  }
+
+  .logo img{
+
+    width:130px;
+
+  }
+
+  .hero-content{
+
+    padding:0 24px 70px;
+
+  }
+
+  .intro{
+
+    padding:90px 24px;
+
+  }
+
+  .projects{
+
+    padding:0 24px 90px;
+
+  }
+
+  .large,
+  .medium,
+  .wide,
+  .small,
+  .full{
+
+    grid-column:span 12;
+
+    height:550px;
+
+  }
+
+  footer{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    text-align:center;
+
+    padding:50px 24px;
+
+  }
+
+}
+
+@media(max-width:768px){
+
+  .hero{
+
+    min-height:620px;
+
+  }
+
+  .hero h1{
+
+    font-size:56px;
+
+  }
+
+  .project-info{
+
+    opacity:1;
+
+  }
+
+  .project-info h3{
+
+    font-size:30px;
+
+  }
+
+  .mobile-menu a{
+
+    font-size:34px;
+
+  }
+
+}
+
+@media(max-width:480px){
+
+  .hero h1{
+
+    font-size:42px;
+
+  }
+
+  .large,
+  .medium,
+  .wide,
+  .small,
+  .full{
+
+    height:380px;
+
+  }
+
+  .project-info{
+
+    padding:22px;
+
+  }
+
+  .project-info h3{
+
+    font-size:24px;
+
+  }
+
+  .hero-content{
+
+    padding:0 18px 60px;
+
+  }
+
+  .intro{
+
+    padding:70px 18px;
+
+  }
+
+  .projects{
+
+    padding:0 18px 70px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+NAVBAR
+========================================================= -->
+
+<nav>
+
+  <div class="logo">
+    <img src="images/logo.png" alt="">
+  </div>
+
+  <input type="checkbox" id="menu-toggle">
+
+  <label for="menu-toggle" class="hamburger">
+
+    <span></span>
+    <span></span>
+
+  </label>
+
+  <div class="menu">
+
+    <a href="index.html">Inicio</a>
+    <a href="about.html">Estudio</a>
+    <a href="projects.html">Proyectos</a>
+    <a href="services.html">Servicios</a>
+    <a href="contact.html">Contacto</a>
+
+  </div>
+
+  <div class="mobile-menu">
+
+    <a href="index.html">Inicio</a>
+    <a href="about.html">Estudio</a>
+    <a href="projects.html">Proyectos</a>
+    <a href="services.html">Servicios</a>
+    <a href="contact.html">Contacto</a>
+
+  </div>
+
+</nav>
+
+<!-- =========================================================
+HERO
+========================================================= -->
+
+<section class="hero">
+
+  <img src="images/projects-hero.jpg">
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+    <div>
+
+      <div class="small">
+        PROYECTOS — HAIKU EXPRESIÓN
+      </div>
+
+      <h1>
+
+        Espacios concebidos
+        desde la emoción.
+
+      </h1>
+
+      <p>
+
+        Arquitectura contemporánea donde
+        paisaje, materia y silencio
+        construyen experiencias habitables.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+INTRO
+========================================================= -->
+
+<section class="intro">
+
+  <h2>
+
+    Cada proyecto
+    es una forma distinta
+    de habitar el espacio.
+
+  </h2>
+
+  <p>
+
+    Nuestra arquitectura nace del diálogo entre
+    naturaleza, luz y materialidad.
+    Buscamos crear espacios atemporales,
+    sensibles y profundamente humanos.
+
+  </p>
+
+</section>
+
+<!-- =========================================================
+PROJECTS GRID
+========================================================= -->
+
+<section class="projects">
+
+  <div class="grid">
+
+    <!-- PROJECT -->
+
+    <div class="project large">
+
+      <img src="images/project-01.jpg">
+
+      <div class="project-info">
+
+        <h3>Proyecto Mahuida</h3>
+        <p>Patagonia Argentina</p>
+
+      </div>
+
+    </div>
+
+    <!-- PROJECT -->
+
+    <div class="project medium">
+
+      <img src="images/project-02.jpg">
+
+      <div class="project-info">
+
+        <h3>Casa Bosque</h3>
+        <p>Hormigón & Naturaleza</p>
+
+      </div>
+
+    </div>
+
+    <!-- PROJECT -->
+
+    <div class="project small">
+
+      <img src="images/project-03.jpg">
+
+      <div class="project-info">
+
+        <h3>Interior Haiku</h3>
+        <p>Luz & Materialidad</p>
+
+      </div>
+
+    </div>
+
+    <!-- PROJECT -->
+
+    <div class="project wide">
+
+      <img src="images/project-04.jpg">
+
+      <div class="project-info">
+
+        <h3>Refugio Contemporáneo</h3>
+        <p>Patagonia</p>
+
+      </div>
+
+    </div>
+
+    <!-- PROJECT -->
+
+    <div class="project full">
+
+      <img src="images/project-05.jpg">
+
+      <div class="project-info">
+
+        <h3>Arquitectura & Paisaje</h3>
+        <p>HAIKU EXPRESIÓN</p>
+
+      </div>
+
+    </div>
+
+    <!-- PROJECT -->
+
+    <div class="project medium">
+
+      <img src="images/project-06.jpg">
+
+      <div class="project-info">
+
+        <h3>Consultorio</h3>
+        <p>Espacios sensibles</p>
+
+      </div>
+
+    </div>
+
+    <!-- PROJECT -->
+
+    <div class="project large">
+
+      <img src="images/project-07.jpg">
+
+      <div class="project-info">
+
+        <h3>Casa de Piedra</h3>
+        <p>Materia & Contexto</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+FINAL
+========================================================= -->
+
+<section class="final">
+
+  <h2>
+
+    La arquitectura
+    también puede transmitir calma.
+
+  </h2>
+
+  <p>
+
+    HAIKU busca crear espacios donde
+    la contemplación, la luz y la naturaleza
+    formen parte de la experiencia cotidiana.
+
+  </p>
+
+</section>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer>
+
+  <div class="logo">
+    HAIKU EXPRESIÓN
+  </div>
+
+  <p>
+    Arquitectura contemporánea • Argentina
+  </p>
+
+</footer>
+
+</body>
+</html>
